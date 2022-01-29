@@ -1,3 +1,17 @@
-it.todo('should add two numbers');
+it('should add two numbers', () => {
+  // Arrange
+  // Act
+  // Assert
+});
 
-it.todo('should multiply two numbers');
+it('should multiply two numbers', () => {
+  // Arrange
+  // Act
+  // Assert
+});
+
+it('should behave...', () => {
+  // Arrange
+  // Act
+  // Assert
+});
