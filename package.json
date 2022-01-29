@@ -1,0 +1,16 @@
+{
+  "name": "@yacafx/tdd-101",
+  "version": "1.0.0",
+  "description": "TDD basic concepts",
+  "main": "index.js",
+  "author": "Sergio Brito <sergiobritor@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "yarn jest --notify",
+    "test:watch": "yarn jest --notify --watch"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "node-notifier": "^10.0.0"
+  }
+}
