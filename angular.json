@@ -4,6 +4,7 @@
     "home": "apps/home",
     "home-e2e": "apps/home-e2e",
     "invoice": "libs/invoice",
+    "kitchen": "libs/kitchen",
     "menu": "libs/menu",
     "reservations": "libs/reservations"
   }

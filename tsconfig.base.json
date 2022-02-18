@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@yfx-invoice": ["libs/invoice/src/index.ts"],
+      "@yfx-kitchen": ["libs/kitchen/src/index.ts"],
       "@yfx-menu": ["libs/menu/src/index.ts"],
       "@yfx-reservations": ["libs/reservations/src/index.ts"]
     }
