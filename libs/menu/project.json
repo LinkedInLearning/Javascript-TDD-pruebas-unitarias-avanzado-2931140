@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/menu",
+  "sourceRoot": "libs/menu/src",
+  "prefix": "restaurant",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/menu"],
+      "options": {
+        "jestConfig": "libs/menu/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/menu/src/**/*.ts", "libs/menu/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

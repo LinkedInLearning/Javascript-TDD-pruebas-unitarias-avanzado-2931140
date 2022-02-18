@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@yfx-invoice": ["libs/invoice/src/index.ts"],
+      "@yfx-menu": ["libs/menu/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

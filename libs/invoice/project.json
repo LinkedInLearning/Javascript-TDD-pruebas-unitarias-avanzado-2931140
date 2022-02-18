@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/invoice",
+  "sourceRoot": "libs/invoice/src",
+  "prefix": "restaurant",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/invoice"],
+      "options": {
+        "jestConfig": "libs/invoice/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/invoice/src/**/*.ts",
+          "libs/invoice/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
