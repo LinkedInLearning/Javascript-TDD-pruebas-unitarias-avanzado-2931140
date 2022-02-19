@@ -19,6 +19,9 @@ export class DishesComponent implements OnInit {
     inStock: boolean
   ): string {
     let selection = '';
+    const dish = { name: 'ceviche' };
+
+    console.log(dish);
 
     if (type === 'vegan' && count > 2 && taste !== 'spicy') {
       selection = `${count} ${type} dishes, no spicy`;
