@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "data-models": "libs/data-models",
     "home": "apps/home",
     "home-e2e": "apps/home-e2e",
     "invoice": "libs/invoice",

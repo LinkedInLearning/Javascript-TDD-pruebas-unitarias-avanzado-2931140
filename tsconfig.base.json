@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@yfx-data-models": ["libs/data-models/src/index.ts"],
       "@yfx-invoice": ["libs/invoice/src/index.ts"],
       "@yfx-kitchen": ["libs/kitchen/src/index.ts"],
       "@yfx-menu": ["libs/menu/src/index.ts"],
