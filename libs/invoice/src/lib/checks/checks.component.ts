@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'restaurant-checks',
   templateUrl: './checks.component.html',
-  styleUrls: ['./checks.component.scss'],
+  styleUrls: ['./checks.component.scss']
 })
-export class ChecksComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class ChecksComponent {}
