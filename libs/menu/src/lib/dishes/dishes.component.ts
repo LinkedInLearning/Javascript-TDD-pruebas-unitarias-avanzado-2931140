@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Dish } from '@yfx-data-models';
+import { MenusService } from '../data-access/menus.service';
 
 @Component({
   selector: 'restaurant-dishes',
   templateUrl: './dishes.component.html',
-  styleUrls: ['./dishes.component.scss'],
+  styleUrls: ['./dishes.component.scss']
 })
 export class DishesComponent implements OnInit {
+  dishes: Dish[] = [];
+  constructor(private menu: MenusService) {}
   ngOnInit(): void {
     const test = 'Hola Mundo';
 
@@ -34,6 +38,13 @@ export class DishesComponent implements OnInit {
   validate(inStock: boolean) {
     if (inStock) {
       console.log(inStock);
+    }
+  }
+
+  showMenu() {
+    const dishes = this.menu.availableDishes();
+    if (dishes.length > 0) {
+      this.dishes = dishes;
     }
   }
 }

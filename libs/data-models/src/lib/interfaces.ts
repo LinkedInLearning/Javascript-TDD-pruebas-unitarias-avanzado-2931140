@@ -9,6 +9,7 @@ export interface Dish {
   taste: Taste;
   name: string;
   country: Country;
+  available: boolean;
 }
 
 export interface Dessert {

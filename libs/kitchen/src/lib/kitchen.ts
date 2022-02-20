@@ -10,7 +10,8 @@ const dish: Dish = {
   country: {
     name: 'Perú',
     language: 'Español'
-  }
+  },
+  available: true
 };
 
 const dessert: Dessert = {
