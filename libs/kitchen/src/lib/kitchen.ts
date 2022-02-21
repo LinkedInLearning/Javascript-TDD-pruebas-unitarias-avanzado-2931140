@@ -1,4 +1,5 @@
 import { Dessert, Dish } from '@yfx-data-models';
+import { verify } from './ingredients';
 
 export function kitchen(): string {
   return 'kitchen';
@@ -24,5 +25,13 @@ function createOrder<OrderKind>(order: OrderKind): OrderKind {
   return order;
 }
 
-createOrder<Dessert>(dessert); //?
-createOrder<Dish>(dish); //?
+createOrder<Dessert>(dessert);
+createOrder<Dish>(dish);
+
+export function validateDish(dish: Dish): boolean {
+  const ingredientsInStock = verify(dish).valid;
+
+  // all other actions
+
+  return ingredientsInStock ? true : false;
+}
