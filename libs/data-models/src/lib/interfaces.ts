@@ -16,3 +16,9 @@ export interface Dessert {
   type: SweetType;
   name: string;
 }
+
+export interface Ingredient {
+  name: string;
+  dish: Pick<Dish, 'name'>;
+  inStock: boolean;
+}
