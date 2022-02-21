@@ -32,9 +32,26 @@ describe('kitchen', () => {
 
     // Assert
     expect(result).toBe(true);
-
     expect(utils.verify).toHaveBeenCalledWith(dishMock);
   });
 
-  it.todo('should get an invalid Dish...');
+  it('should get an invalid Dish...', () => {
+    const invalidVerification = {
+      missedIngredients: ['limón', 'cebolla'],
+      valid: false
+    };
+
+    utils.verify = jest.fn(() => invalidVerification);
+
+    // Act
+    const result = validateDish(dishMock);
+    console.log(utils.verify.mock);
+    console.log(utils.verify.mock.calls);
+    console.log(utils.verify.mock.results);
+
+    // Assert
+    expect(result).toBe(false);
+    expect(utils.verify).toHaveBeenCalledWith(dishMock);
+    expect(utils.verify.mock.results[0].value).toEqual(invalidVerification);
+  });
 });
