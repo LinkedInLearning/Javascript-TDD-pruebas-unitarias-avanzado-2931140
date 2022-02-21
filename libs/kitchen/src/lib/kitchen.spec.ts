@@ -5,14 +5,19 @@ import { dishMock } from './mocks/dishes.mocks';
 const utils = require('./ingredients');
 
 describe('kitchen', () => {
+  // Mocking dependency
+  const originalVerify = utils.verify;
+
+  // beforeEach(()=>{})
+  afterEach(() => {
+    utils.verify = originalVerify;
+  });
+
   it('should work', () => {
     expect(kitchen()).toEqual('kitchen');
   });
 
   it('should get a valid the Dish...', () => {
-    // Mocking dependency
-    const originalVerify = utils.verify;
-
     // Arrange
     const validVerification = {
       missedIngredients: [],
@@ -29,7 +34,6 @@ describe('kitchen', () => {
     expect(result).toBe(true);
 
     expect(utils.verify).toHaveBeenCalledWith(dishMock);
-    utils.verify = originalVerify;
   });
 
   it.todo('should get an invalid Dish...');
