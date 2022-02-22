@@ -1,16 +1,14 @@
 import { kitchen, validateDish } from './kitchen';
 import { dishMock } from './mocks/dishes.mocks';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const utils = require('./ingredients');
+import * as utils from './ingredients';
 
 describe('kitchen', () => {
-  // Mocking dependency
-  const originalVerify = utils.verify;
+  const verifySpy = jest.spyOn(utils, 'verify');
 
   // beforeEach(()=>{})
   afterEach(() => {
-    utils.verify = originalVerify;
+    verifySpy.mockReset();
   });
 
   it('should work', () => {
@@ -24,8 +22,8 @@ describe('kitchen', () => {
       valid: true
     };
 
-    // utils.verify = () => validVerification;
-    utils.verify = jest.fn(() => validVerification);
+    // verifySpy.mockImplementation(() => validVerification);
+    verifySpy.mockReturnValue(validVerification);
 
     // Act
     const result = validateDish(dishMock);
@@ -41,17 +39,17 @@ describe('kitchen', () => {
       valid: false
     };
 
-    utils.verify = jest.fn(() => invalidVerification);
+    verifySpy.mockReturnValue(invalidVerification);
 
     // Act
     const result = validateDish(dishMock);
-    console.log(utils.verify.mock);
-    console.log(utils.verify.mock.calls);
-    console.log(utils.verify.mock.results);
+    console.log(verifySpy.mock);
+    console.log(verifySpy.mock.calls);
+    console.log(verifySpy.mock.results);
 
     // Assert
     expect(result).toBe(false);
     expect(utils.verify).toHaveBeenCalledWith(dishMock);
-    expect(utils.verify.mock.results[0].value).toEqual(invalidVerification);
+    expect(verifySpy.mock.results[0].value).toEqual(invalidVerification);
   });
 });
