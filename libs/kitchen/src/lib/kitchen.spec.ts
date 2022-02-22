@@ -1,14 +1,26 @@
+import { ingredients, verify } from './ingredients';
 import { kitchen, validateDish } from './kitchen';
 import { dishMock } from './mocks/dishes.mocks';
 
-import * as utils from './ingredients';
+jest.mock('./ingredients.ts', () => {
+  return {
+    ingredients: [
+      {
+        name: 'limón',
+        dish: { name: 'ceviche' },
+        inStock: false
+      }
+    ],
+    verify: jest.fn()
+  };
+});
+
+const verifyMock = verify as jest.MockedFunction<typeof verify>;
 
 describe('kitchen', () => {
-  let verifySpy = jest.spyOn(utils, 'verify');
-
   // beforeEach(()=>{})
   afterEach(() => {
-    verifySpy.mockReset();
+    verifyMock.mockReset();
   });
 
   it('should work', () => {
@@ -22,37 +34,38 @@ describe('kitchen', () => {
       valid: true
     };
 
-    // verifySpy.mockImplementation(() => validVerification);
-    verifySpy.mockReturnValue(validVerification);
+    ingredients; //?
+
+    // verifyMock.mockImplementation(() => validVerification);
+    verifyMock.mockReturnValue(validVerification);
 
     // Act
     const result = validateDish(dishMock);
 
     // Assert
     expect(result).toBe(true);
-    expect(utils.verify).toHaveBeenCalledWith(dishMock);
+    expect(verify).toHaveBeenCalledWith(dishMock);
   });
 
   it('should get an invalid Dish...', () => {
-    verifySpy.mockRestore();
+    verifyMock.mockRestore();
 
     const invalidVerification = {
       missedIngredients: ['limón', 'cebolla'],
       valid: false
     };
 
-    verifySpy = jest.spyOn(utils, 'verify');
-    verifySpy.mockReturnValue(invalidVerification);
+    verifyMock.mockReturnValue(invalidVerification);
 
     // Act
     const result = validateDish(dishMock);
-    console.log(verifySpy.mock);
-    console.log(verifySpy.mock.calls);
-    console.log(verifySpy.mock.results);
+    console.log(verifyMock.mock);
+    console.log(verifyMock.mock.calls);
+    console.log(verifyMock.mock.results);
 
     // Assert
     expect(result).toBe(false);
-    expect(utils.verify).toHaveBeenCalledWith(dishMock);
-    expect(verifySpy.mock.results[0].value).toEqual(invalidVerification);
+    expect(verify).toHaveBeenCalledWith(dishMock);
+    expect(verifyMock.mock.results[0].value).toEqual(invalidVerification);
   });
 });
