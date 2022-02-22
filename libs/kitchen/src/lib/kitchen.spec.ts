@@ -4,7 +4,7 @@ import { dishMock } from './mocks/dishes.mocks';
 import * as utils from './ingredients';
 
 describe('kitchen', () => {
-  const verifySpy = jest.spyOn(utils, 'verify');
+  let verifySpy = jest.spyOn(utils, 'verify');
 
   // beforeEach(()=>{})
   afterEach(() => {
@@ -34,11 +34,14 @@ describe('kitchen', () => {
   });
 
   it('should get an invalid Dish...', () => {
+    verifySpy.mockRestore();
+
     const invalidVerification = {
       missedIngredients: ['limón', 'cebolla'],
       valid: false
     };
 
+    verifySpy = jest.spyOn(utils, 'verify');
     verifySpy.mockReturnValue(invalidVerification);
 
     // Act
