@@ -1,6 +1,6 @@
 # Javascript: TDD y pruebas unitarias avanzado
 
-Este es el repositorio del curso de LinkedIn Learning [Javascript: TDD y pruebas unitarias avanzado]. El curso completo está disponible en [LinkedIn Learning][lil-course-url].
+Este es el repositorio del curso de LinkedIn Learning Javascript: TDD y pruebas unitarias avanzado. El curso completo está disponible en [LinkedIn Learning][lil-course-url].
 
 ![Nombre completo del curso][lil-thumbnail-url] 
 
