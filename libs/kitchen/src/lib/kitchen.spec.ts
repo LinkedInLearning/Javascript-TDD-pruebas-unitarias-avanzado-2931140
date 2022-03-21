@@ -1,21 +1,9 @@
 import { ingredients, verify } from './ingredients';
 import { kitchen, validateDish } from './kitchen';
-import { dishMock } from './mocks/dishes.mocks';
+import { dishMock } from './__mocks__/dishes.mocks';
+import { verifyMock } from './__mocks__/spies.mocks';
 
-jest.mock('./ingredients.ts', () => {
-  return {
-    ingredients: [
-      {
-        name: 'limón',
-        dish: { name: 'ceviche' },
-        inStock: false
-      }
-    ],
-    verify: jest.fn()
-  };
-});
-
-const verifyMock = verify as jest.MockedFunction<typeof verify>;
+jest.mock('./ingredients.ts');
 
 describe('kitchen', () => {
   // beforeEach(()=>{})
