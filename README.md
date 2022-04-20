@@ -30,5 +30,5 @@ Las ramas están estructuradas para corresponder a los vídeos del curso. La con
 
 Echa un vistazo a mis otros cursos en [LinkedIn Learning](https://www.linkedin.com/learning/instructors/sergio-brito).
 
-[lil-course-url]: https://www.linkedin.com/learning/building-a-graphql-project-with-react-js
+[lil-course-url]: https://www.linkedin.com/learning/javascript-tdd-y-pruebas-unitarias-avanzado/pruebas-unitarias-con-javascript
 [lil-thumbnail-url]: https://cdn.lynda.com/course/2931140/2931140-1650378876395-16x9.jpg
